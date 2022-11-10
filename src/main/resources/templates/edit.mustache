@@ -1,5 +1,5 @@
 {{>layouts/header}}
-
+<div class="container">
 {{#article}}
     <form action="/articles/{{id}}/update" method="post">
         <input type="hidden" name="id" value="{{id}}">
@@ -14,7 +14,7 @@
         <button type="submit" class="btn btn-primary">글 수정</button>
     </form>
 {{/article}}
-
+</div>
 
 
 
