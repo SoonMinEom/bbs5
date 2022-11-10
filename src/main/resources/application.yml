@@ -2,3 +2,8 @@ server:
   servlet:
     encoding:
       force-response: true
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
