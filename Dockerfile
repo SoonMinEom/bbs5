@@ -13,12 +13,12 @@ RUN gradle build -x test --parallel
 FROM openjdk:11.0-slim
 WORKDIR /app
 
-# 빌더 이미지에서 jar 파일만 복사
+# 빌더 이미지에서 jar 파일만 복사(마지막은 내 jar파일로)
 COPY --from=builder /build/build/libs/bbs5-0.0.1-SNAPSHOT.jar .
 
 EXPOSE 8080
 
-# root 대신 nobody 권한으로 실행
+# root 대신 nobody 권한으로 실행(마지막은 내 jar파일로)
 USER nobody
 ENTRYPOINT [                                                \
    "java",                                                 \
