@@ -54,4 +54,22 @@ public class ArticleController {
         model.addAttribute("articles", articles);
         return "list";
     }
+
+    @GetMapping("/{id}/toedit")
+    public String toEdit(@PathVariable Long id,  Model model) {
+        Optional<Article> optArticle = articleRepository.findById(id);
+        if(optArticle.isEmpty()) {
+            return "error";
+        } else {
+            model.addAttribute("article", optArticle.get());
+            return "edit";
+        }
+    }
+
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
+        Article article = articleRepository.save(articleDto.toEntity());
+        model.addAttribute("article", article);
+        return String.format("redirect:/articles/%d",article.getId());
+    }
 }
