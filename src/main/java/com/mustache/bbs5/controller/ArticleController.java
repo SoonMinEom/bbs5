@@ -30,6 +30,11 @@ public class ArticleController {
         return "new";
     }
 
+    @GetMapping("")
+    public String index() {
+        return "redirect:/articles/list";
+    }
+
     @PostMapping("/add")
     public String add(ArticleDto articleDto) {
         Article article = articleDto.toEntity();
