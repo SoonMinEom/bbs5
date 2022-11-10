@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
-@Setter
+@Setter // 반드시 해야함
 @NoArgsConstructor
 public class ArticleDto {
     private Long id;
