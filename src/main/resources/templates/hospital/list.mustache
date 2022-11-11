@@ -1,27 +1,30 @@
 {{>layouts/header}}
 
+<container>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">번호</th>
+            <th scope="col">병원명</th>
+            <th scope="col">도로명주소</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        {{#hospitals}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td><a href="/hospitals/{{id}}">{{hospital_name}}</a></td>
+                <td>{{road_name_address}}</td>
+            </tr>
+        {{/hospitals}}
+        </tbody>
+    </table>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <a href="/hospitals/list?page={{previous}}" class="btn btn-outline-primary">이전 페이지</a>
+        <a href="/hospitals/list?page={{next}}" class="btn btn-outline-primary">다음 페이지</a>
+    </div>
+</container>
 
-
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">번호</th>
-        <th scope="col">병원명</th>
-        <th scope="col">도로명주소</th>
-    </tr>
-    </thead>
-    <tbody>
-{{#hospitals}}
-    <tr>
-        <th scope="row">{{id}}</th>
-        <td><a href="/hospitals/{{id}}">{{hospital_name}}</a></td>
-        <td>{{road_name_address}}</td>
-    </tr>
-{{/hospitals}}
-    </tbody>
-</table>
-    <a href="/hospitals/list?page={{previous}}" class="btn btn-primary">앞 페이지</a>
-    <a href="/hospitals/list?page={{next}}" class="btn btn-primary">뒤 페이지</a>
 
 
 {{>layouts/footer}}

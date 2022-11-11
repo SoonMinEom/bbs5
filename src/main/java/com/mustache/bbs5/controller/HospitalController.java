@@ -27,6 +27,11 @@ public class HospitalController {
         this.hospitalService = hospitalService;
     }
 
+    @GetMapping("")
+    public String index() {
+        return String.format("redirect:/articles/list");
+    }
+
     @GetMapping("/{id}")
     public String findById(@PathVariable Integer id, Model model) {
         Optional<Hospital> optHospital = hospitalRepository.findById(id);
@@ -45,4 +50,6 @@ public class HospitalController {
         model.addAttribute("next",pageable.next().getPageNumber());
         return "hospital/list";
     }
+
+
 }
