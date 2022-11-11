@@ -1,0 +1,26 @@
+{{>layouts/header}}
+
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">번호</th>
+        <th scope="col">병원명</th>
+        <th scope="col">도로명주소</th>
+    </tr>
+    </thead>
+    <tbody>
+{{#hospitals}}
+    <tr>
+        <th scope="row">{{id}}</th>
+        <td><a href="/articles/{{id}}">{{hospital_name}}</a></td>
+        <td>{{road_name_address}}</td>
+    </tr>
+{{/hospitals}}
+    </tbody>
+</table>
+<!--<a href="/articles/new" class="btn btn-primary">글 작성</a>-->
+
+
+{{>layouts/footer}}
