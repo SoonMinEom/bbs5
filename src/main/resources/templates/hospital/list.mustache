@@ -14,13 +14,14 @@
 {{#hospitals}}
     <tr>
         <th scope="row">{{id}}</th>
-        <td><a href="/articles/{{id}}">{{hospital_name}}</a></td>
+        <td><a href="/hospitals/{{id}}">{{hospital_name}}</a></td>
         <td>{{road_name_address}}</td>
     </tr>
 {{/hospitals}}
     </tbody>
 </table>
-<!--<a href="/articles/new" class="btn btn-primary">글 작성</a>-->
+    <a href="/hospitals/list?page={{previous}}" class="btn btn-primary">앞 페이지</a>
+    <a href="/hospitals/list?page={{next}}" class="btn btn-primary">뒤 페이지</a>
 
 
 {{>layouts/footer}}
