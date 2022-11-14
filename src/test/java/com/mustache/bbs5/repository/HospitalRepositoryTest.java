@@ -60,7 +60,7 @@ class HospitalRepositoryTest {
     @Test
     @DisplayName("Between 사용")
     void find5() {
-        List<Hospital> hospitals = hospitalRepository.findByPatientRoomCountBetween(10,20);
+        List<Hospital> hospitals = hospitalRepository.findByPatientRoomCountBetweenOrderByPatientRoomCountAsc(10,20);
         for (Hospital hospital : hospitals) {
             System.out.printf("%s, %d\n",hospital.getHospitalName(), hospital.getPatientRoomCount());
         }
