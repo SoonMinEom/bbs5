@@ -18,4 +18,5 @@ public class Hospital {
     private Integer id;
     private String hospital_name;
     private String road_name_address;
+    private String businessTypeName;
 }
