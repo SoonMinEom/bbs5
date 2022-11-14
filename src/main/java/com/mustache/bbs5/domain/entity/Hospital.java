@@ -19,4 +19,5 @@ public class Hospital {
     private String hospitalName;
     private String roadNameAddress;
     private String businessTypeName;
+    private Integer patientRoomCount;
 }
