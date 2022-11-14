@@ -1,0 +1,1 @@
+SELECT * FROM likelion.nation_wide_hospitals where (hospital_name like '%피부%' and full_address like '%수원%') ;
