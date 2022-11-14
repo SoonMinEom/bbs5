@@ -65,4 +65,18 @@ class HospitalRepositoryTest {
             System.out.printf("%s, %d\n",hospital.getHospitalName(), hospital.getPatientRoomCount());
         }
     }
+
+    @Test
+    @DisplayName("여러개의 In조건 + 주소 검색")
+    void find6() {
+        List<String> inClues = new ArrayList<>();
+        inClues.add("보건소");
+        inClues.add("보건지소");
+        inClues.add("보건진료소");
+
+        List<Hospital> hospitalList = hospitalRepository.findByBusinessTypeNameInAndRoadNameAddressContaining(inClues,"송파구");
+        for (Hospital hospital : hospitalList) {
+            System.out.printf("%s, %s, %s\n",hospital.getHospitalName(), hospital.getBusinessTypeName(), hospital.getRoadNameAddress());
+        }
+    }
 }
