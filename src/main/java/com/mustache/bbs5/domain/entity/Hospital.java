@@ -21,8 +21,16 @@ public class Hospital {
     private String roadNameAddress;
     private String businessTypeName;
     private Integer patientRoomCount;
+    private Integer totalNumberOfBeds;
+    private Float totalAreaSize;
 
     public static HospitalResponse of(Hospital hospital) {
-        return  new HospitalResponse(hospital.getId(), hospital.getHospitalName(), hospital.getRoadNameAddress());
+        return  new HospitalResponse(hospital.getId(),
+                hospital.getHospitalName(),
+                hospital.getRoadNameAddress(),
+                hospital.getBusinessTypeName(),
+                hospital.getPatientRoomCount(),
+                hospital.getTotalNumberOfBeds(),
+                hospital.getTotalAreaSize());
     }
 }
