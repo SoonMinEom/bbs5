@@ -15,8 +15,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(HospitalRestController.class)
 class HospitalRestControllerTest {
@@ -53,6 +52,8 @@ class HospitalRestControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.hospitalName").exists()) // $는 루트 $아래에 hospitalName이 있어야 함
                 .andExpect(jsonPath("$.hospitalName").value("노소아청소년과의원"))
+                .andExpect(jsonPath("$.businessStatusName").exists()) // $는 루트 $아래에 businessStatusName이 있어야 함
+                .andExpect(jsonPath("$.businessStatusName").value("영업중"))
                 .andDo(print()); // http request, response 내역을 출력
 
         // getHospital() 메소드의 호출이 이었는지 확인
