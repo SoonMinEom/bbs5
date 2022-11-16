@@ -8,9 +8,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Builder
 @Getter
-public class ArticleResponse {
+public class ArticleAddResponse {
     private Long id;
     private String title;
     private String content;
-
 }

@@ -1,5 +1,7 @@
 package com.mustache.bbs5.service;
 
+import com.mustache.bbs5.domain.dto.ArticleAddRequest;
+import com.mustache.bbs5.domain.dto.ArticleAddResponse;
 import com.mustache.bbs5.domain.dto.ArticleResponse;
 import com.mustache.bbs5.domain.entity.Article;
 import com.mustache.bbs5.repository.ArticleRepository;
@@ -19,5 +21,11 @@ public class ArticleService {
             Article article = optionalArticle.get();
             ArticleResponse articleResponse = Article.of(article);
         return articleResponse;
+    }
+
+    public ArticleAddResponse add(ArticleAddRequest articleAddRequest) {
+        Article article = articleRepository.save(articleAddRequest.toEntity());
+        ArticleAddResponse articleAddResponse = Article.get(article);
+        return articleAddResponse;
     }
 }

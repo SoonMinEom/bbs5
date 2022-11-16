@@ -1,5 +1,6 @@
 package com.mustache.bbs5.service;
 
+import com.mustache.bbs5.domain.dto.ArticleResponse;
 import com.mustache.bbs5.domain.dto.HospitalResponse;
 import com.mustache.bbs5.domain.entity.Hospital;
 import com.mustache.bbs5.repository.HospitalRepository;

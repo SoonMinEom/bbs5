@@ -1,10 +1,8 @@
 package com.mustache.bbs5.domain.entity;
 
+import com.mustache.bbs5.domain.dto.ArticleAddResponse;
 import com.mustache.bbs5.domain.dto.ArticleResponse;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Article {
 
     @Id
@@ -29,5 +28,8 @@ public class Article {
 
     public static ArticleResponse of(Article article) {
         return new ArticleResponse(article.getId(), article.getTitle(), article.getContent());
+    }
+    public static ArticleAddResponse get(Article article) {
+        return new ArticleAddResponse(article.getId(), article.getTitle(), article.getContent());
     }
 }
