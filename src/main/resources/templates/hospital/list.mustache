@@ -1,5 +1,9 @@
 {{>layouts/header}}
 
+<form action="/hospitals/test" method="get">
+<input type="text" name="keyword">
+</form>
+
 <container>
     <table class="table">
         <thead>
@@ -13,8 +17,8 @@
         {{#hospitals}}
             <tr>
                 <th scope="row">{{id}}</th>
-                <td><a href="/hospitals/{{id}}">{{hospital_name}}</a></td>
-                <td>{{road_name_address}}</td>
+                <td><a href="/hospitals/{{id}}">{{hospitalName}}</a></td>
+                <td>{{roadNameAddress}}</td>
             </tr>
         {{/hospitals}}
         </tbody>

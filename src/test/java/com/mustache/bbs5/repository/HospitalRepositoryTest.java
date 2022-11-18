@@ -39,6 +39,14 @@ class HospitalRepositoryTest {
             System.out.println(hospital.getRoadNameAddress());
         }
     }
+    @Test
+    @DisplayName("Containing 사용2")
+    void find22() {
+        List<Hospital> hospitals = hospitalRepository.findByRoadNameAddressContaining("송파구");
+        for (Hospital hospital : hospitals) {
+            System.out.println(hospital.getRoadNameAddress());
+        }
+    }
 
     @Test
     @DisplayName("StartsWith 사용")
