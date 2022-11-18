@@ -25,6 +25,13 @@ public class Hospital {
     private Integer businessStatusCode;
     private Float totalAreaSize;
 
+    public Hospital(Integer id, String roadNameAddress, String hospitalName, Integer businessStatusCode) {
+        this.id = id;
+        this.roadNameAddress = roadNameAddress;
+        this.hospitalName = hospitalName;
+        this.businessStatusCode = businessStatusCode;
+    }
+
     public static HospitalResponse of(Hospital hospital) {
         return  new HospitalResponse(hospital.getId(),
                 hospital.getRoadNameAddress(),
