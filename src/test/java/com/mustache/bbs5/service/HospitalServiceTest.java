@@ -25,10 +25,21 @@ class HospitalServiceTest {
 
     @Test
     void serviceTest() {
+
+        Hospital hospital1 = new Hospital(1,"병원이름","병원주소",13);
+
         Mockito.when(hospitalRepository.findById(1))
-                .thenReturn(Optional.of(new Hospital(1,"병원이름","병원주소",13)));
+                .thenReturn(Optional.of(hospital1));
 
         HospitalResponse hospitalResponse = hospitalService.getHospital(1);
         assertEquals("영업중",hospitalResponse.getBusinessStatusName());
+
+        Hospital hospital2 = new Hospital(2,"병원이름","병원주소",3);
+
+        Mockito.when(hospitalRepository.findById(2))
+                .thenReturn(Optional.of(hospital2));
+
+        HospitalResponse hospitalResponse2 = hospitalService.getHospital(2);
+        assertEquals("폐업",hospitalResponse2.getBusinessStatusName());
     }
 }
