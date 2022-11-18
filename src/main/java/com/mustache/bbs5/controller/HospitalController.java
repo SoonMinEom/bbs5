@@ -32,7 +32,7 @@ public class HospitalController {
     }
 
     @GetMapping("/test")
-    public String keyWordlist(@RequestParam String keyword, @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.ASC)Pageable pageable, Model model) {
+    public String keyWordlist(@RequestParam String keyword, Pageable pageable, Model model) {
         // keyword는 어떻게 받을 것인가?
         log.info("keyword:{}",keyword);
 //        String keyword = "경기도 수원시";
@@ -40,7 +40,8 @@ public class HospitalController {
         model.addAttribute("hospitals", hospitals);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next",pageable.next().getPageNumber());
-        return "hospital/list";
+        model.addAttribute("keyword",keyword);
+        return "hospital/keywordList";
     }
 
     @GetMapping("/{id}")
