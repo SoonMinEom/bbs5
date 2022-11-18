@@ -6,6 +6,7 @@ import com.mustache.bbs5.domain.dto.ArticleAddRequest;
 import com.mustache.bbs5.domain.dto.ArticleAddResponse;
 import com.mustache.bbs5.domain.dto.ArticleResponse;
 import com.mustache.bbs5.service.ArticleService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,14 +61,15 @@ class ArticleRestControllerTest {
         verify(articleService).getArticle(1L);
     }
 
+
     @Test
     @DisplayName("잘 추가")
     void add() throws Exception {
 
         ArticleAddRequest dto = new ArticleAddRequest("제목입니다","내용입니다.");
-
         ArticleAddResponse articleAddResponse = new ArticleAddResponse(1L,"제목입니다.","내용입니다.");
-        given(articleService.add(any())).willReturn(articleAddResponse);
+
+        given(articleService.add(dto)).willReturn(articleAddResponse);
 
         mockMvc.perform(post("/api/v1/articles")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -76,9 +78,10 @@ class ArticleRestControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists())
                 .andExpect(jsonPath("$.title").exists())
+                .andExpect(jsonPath("$.title").value("제목입니당"))
                 .andExpect(jsonPath("$.content").exists())
                 .andDo(print());
 
-        verify(articleService).add(any());
+        verify(articleService).add(dto);
     }
 }

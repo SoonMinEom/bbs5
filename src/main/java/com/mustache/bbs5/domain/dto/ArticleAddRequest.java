@@ -3,11 +3,13 @@ package com.mustache.bbs5.domain.dto;
 import com.mustache.bbs5.domain.entity.Article;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Builder
 @Getter
+@Data
 public class ArticleAddRequest {
     private String title;
     private String content;
