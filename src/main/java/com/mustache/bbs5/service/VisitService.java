@@ -52,4 +52,11 @@ public class VisitService {
         List<VisitResponse> visitResponseList = visitList.stream().map(visit -> visit.toResponse(user.get().getUsername(),visit.getHospitalId().getHospitalName())).collect(Collectors.toList());
         return visitResponseList;
     }
+
+    public List<VisitResponse> seeHospitals(Integer hospitalId) {
+        Optional<Hospital> hospital = hospitalRepository.findById(hospitalId);
+        List<Visit> visitList = visitRepository.findByHospitalId(hospital.get());
+        List<VisitResponse> visitResponseList = visitList.stream().map(visit -> visit.toResponse(visit.getUserId().getUsername(),visit.getHospitalId().getHospitalName())).collect(Collectors.toList());
+        return visitResponseList;
+    }
 }

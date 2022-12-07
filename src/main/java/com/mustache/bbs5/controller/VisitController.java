@@ -40,4 +40,10 @@ public class VisitController {
         List<VisitResponse> list = visitService.seeUsers(id);
         return ResponseEntity.ok().body(list);
     }
+
+    @GetMapping("/hospitals/{id}")
+    public ResponseEntity<List<VisitResponse>> hospitalVisit(@PathVariable Integer id) {
+        List<VisitResponse> list = visitService.seeHospitals(id);
+        return ResponseEntity.ok().body(list);
+    }
 }
