@@ -3,5 +3,4 @@
 GET /reviews/{id}
 
 주소 : http://ec2-52-78-223-101.ap-northeast-2.compute.amazonaws.com:8080/reviews/1
-
-![img.png](img.png)
+![](../../Downloads/readme.drawio.png)
