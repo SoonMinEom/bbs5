@@ -34,4 +34,10 @@ public class VisitController {
         List<VisitResponse> list = visitService.seeAll(authentication.getName());
         return ResponseEntity.ok().body(list);
     }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<List<VisitResponse>> usersVisit(@PathVariable Long id) {
+        List<VisitResponse> list = visitService.seeUsers(id);
+        return ResponseEntity.ok().body(list);
+    }
 }

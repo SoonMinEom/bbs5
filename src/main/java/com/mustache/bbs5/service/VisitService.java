@@ -46,4 +46,10 @@ public class VisitService {
         return visitResponseList;
     }
 
+    public List<VisitResponse> seeUsers(Long userid) {
+        Optional<User> user = userRepository.findById(userid);
+        List<Visit> visitList = visitRepository.findByUserId(user.get());
+        List<VisitResponse> visitResponseList = visitList.stream().map(visit -> visit.toResponse(user.get().getUsername(),visit.getHospitalId().getHospitalName())).collect(Collectors.toList());
+        return visitResponseList;
+    }
 }
