@@ -32,8 +32,6 @@ public class HospitalService {
         return hospitalRepository.findByRoadNameAddressContaining(keyword, pageable);
     }
 
-
-
     public HospitalResponse getHospital(Integer id) {
         Optional<Hospital> opthospital = hospitalRepository.findById(id);
         Hospital hospital = opthospital.get();

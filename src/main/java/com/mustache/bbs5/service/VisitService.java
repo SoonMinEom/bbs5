@@ -13,7 +13,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +38,12 @@ public class VisitService {
         Visit visit =visitRepository.save(visitRequest.toEntity(user, hospital.get()));
         VisitResponse visitResponse = visit.toResponse(userName, hospital.get().getHospitalName());
         return visitResponse;
+    }
+
+    public List<VisitResponse> seeAll(String username){
+        List<Visit> visitList = visitRepository.findAll();
+        List<VisitResponse> visitResponseList = visitList.stream().map(visit -> visit.toResponse(username,visit.getHospitalId().getHospitalName())).collect(Collectors.toList());
+        return visitResponseList;
     }
 
 }
