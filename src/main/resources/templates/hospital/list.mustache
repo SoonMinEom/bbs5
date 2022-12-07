@@ -1,7 +1,12 @@
 {{>layouts/header}}
 
 <form action="/hospitals/test" method="get">
-<input type="text" name="keyword">
+    {{#keyword}}
+        지역검색 : <input type="text" name="keyword" value={{keyword}}>
+    {{/keyword}}
+    {{^keyword}}
+        지역검색 : <input type="text" name="keyword">
+    {{/keyword}}
 </form>
 
 <container>
@@ -24,11 +29,15 @@
         </tbody>
     </table>
     <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <a href="/hospitals/list?page={{previous}}" class="btn btn-outline-primary">이전 페이지</a>
-        <a href="/hospitals/list?page={{next}}" class="btn btn-outline-primary">다음 페이지</a>
+        {{#keyword}}
+            <a href="/hospitals/test?keyword={{keyword}}&page={{previous}}" class="btn btn-outline-primary">이전 페이지</a>
+            <a href="/hospitals/test?keyword={{keyword}}&page={{next}}" class="btn btn-outline-primary">다음 페이지</a>
+        {{/keyword}}
+        {{^keyword}}
+            <a href="/hospitals/list?page={{previous}}" class="btn btn-outline-primary">이전 페이지</a>
+            <a href="/hospitals/list?page={{next}}" class="btn btn-outline-primary">다음 페이지</a>
+        {{/keyword}}
     </div>
 </container>
-
-
 
 {{>layouts/footer}}

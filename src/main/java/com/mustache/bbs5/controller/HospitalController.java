@@ -41,7 +41,7 @@ public class HospitalController {
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next",pageable.next().getPageNumber());
         model.addAttribute("keyword",keyword);
-        return "hospital/keywordList";
+        return "hospital/list";
     }
 
     @GetMapping("/{id}")
