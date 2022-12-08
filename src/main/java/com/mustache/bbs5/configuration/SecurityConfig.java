@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests()
-                .antMatchers("/hospitals/**", "/articles/**").permitAll() // join, login은 언제나 가능
+                .antMatchers("/hospitals/**", "/articles/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/v1/visits").authenticated()
                 .and()
                 .sessionManagement()

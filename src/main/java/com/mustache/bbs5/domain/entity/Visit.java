@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Builder
-public class Visit {
+public class Visit extends Base{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +27,6 @@ public class Visit {
     @ManyToOne
     @JoinColumn(name = "hospital_id")
     private Hospital hospitalId;
-    private Date date;
     private String disease;
     private int cost;
 
